@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dieses Dokument wurde mit dem "Moliri - Pflichtenheftgenerator" erstellt -->
+<!-- Nur Änderungen vornehmen wenn Sie wissen was sie tuen -->
+<!DOCTYPE config [
+<!ELEMENT config (Arbeitsordner,Sicherungsordner,auto,Rechtschreib)>
+<!ELEMENT Arbeitsordner (#PCDATA)>
+<!ELEMENT Sicherungsordner (#PCDATA)>
+<!ELEMENT auto (an, zeit)>
+<!ELEMENT an (#PCDATA)>
+<!ELEMENT zeit (#PCDATA)>
+<!ELEMENT Rechtschreib (#PCDATA)> 
+]>
+
+
+<config>
+  <Arbeitsordner>/home/alexandros/Desktop/Pflichtenheftordner</Arbeitsordner>
+  <Sicherungsordner>/home/alexandros/</Sicherungsordner>
+  <auto>
+    <an>0</an>
+    <zeit>1</zeit>
+  </auto>
+  <Rechtschreib>0</Rechtschreib>
+</config>

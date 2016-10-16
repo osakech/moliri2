@@ -1,0 +1,74 @@
+#===============================================================================
+#
+#         FILE:  .perlcriticrc
+#
+#        USAGE:  In den Projektordner legen  
+#
+#  DESCRIPTION:  In dieser Datei wird die Konfiguration von perlcritic
+#                vorgenommen
+#
+# REQUIREMENTS:  Perl::Critic
+#       AUTHOR:  Alexandros Kechagias 
+#      COMPANY:  Fachhochschule Südwestfalen
+#      VERSION:  1.0
+#      CREATED:  24/03/11 15:27:22
+#     REVISION:  0.1
+#===============================================================================
+#--------------------------------------------------------------
+#    SEVERITY NAME   ...is equivalent to...   SEVERITY NUMBER
+#    --------------------------------------------------------
+#    -severity => 'gentle'                     -severity => 5
+#    -severity => 'stern'                      -severity => 4
+#    -severity => 'harsh'                      -severity => 3
+#    -severity => 'cruel'                      -severity => 2
+#    -severity => 'brutal'                     -severity => 1
+#--------------------------------------------------------------
+severity = 1
+#verbosity = 8
+#--------------------------------------------------------------
+# Nur die ersten 10 Fehlermeldung anzeigen
+#--------------------------------------------------------------
+#top = 10
+#
+#--------------------------------------------------------------
+# print-Befehl nicht auf Rückgabewert prüfen -> overkill
+#--------------------------------------------------------------
+[InputOutput::RequireCheckedSyscalls]
+functions = :builtins
+exclude_functions = print
+#---------------------------------------------------------------------------
+# Es wird git benutzt und das wird hier nicht überprüft.
+#---------------------------------------------------------------------------
+[-Miscellanea::RequireRcsKeywords]
+#--------------------------------------------------------------
+# Dokumentation wird mit Naturaldocs generiert
+#--------------------------------------------------------------
+[-Documentation::PodSpelling]
+[-Documentation::RequirePackageMatchesPodName]
+[-Documentation::RequirePodAtEnd]
+[-Documentation::RequirePodSections]
+
+#---------------------------------------------------------------------------
+#  Modules::RequireVersionVar
+#---------------------------------------------------------------------------
+[-Modules::RequireVersionVar]
+
+
+#---------------------------------------------------------------------------
+#  Es werden in diesem Programm nur sehr einfache Regex verwendet
+#---------------------------------------------------------------------------
+[-RegularExpressions::RequireDotMatchAnything]
+[-RegularExpressions::RequireExtendedFormatting]
+[-RegularExpressions::RequireLineBoundaryMatching]
+
+#---------------------------------------------------------------------------
+#  Es muss in den Exportmodulen sehr oft direkt auf Array-Einträge zugegriffen werden
+#---------------------------------------------------------------------------
+[-ValuesAndExpressions::ProhibitMagicNumbers]
+
+#---------------------------------------------------------------------------
+#  Aus Gründen der einfacheren Fromatierung wird im Modul MoliriTXT sehr oft leere
+#  String zugegriffen zb.: '       '
+#---------------------------------------------------------------------------
+[-ValuesAndExpressions::ProhibitEmptyQuotes]
+
